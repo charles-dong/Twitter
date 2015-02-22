@@ -30,9 +30,9 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
     // Do any additional setup after loading the view from its nib.
     
     UIColor *twitterColor = [UIColor  colorWithRed:85.0f/255.0f green:172.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
-    
+    UIColor *twitterSecondaryColor = [UIColor  colorWithRed:245.0f/255.0f green:248.0f/255.0f blue:250.0f/255.0f alpha:1.0f];
      // navigation bar
-    [self setupNavigationBarWithBarTintColor:twitterColor andTintColor:[UIColor whiteColor]];
+    [self setupNavigationBarWithBarTintColor:twitterColor andTintColor:twitterSecondaryColor];
     
     // table view setup
     [self.tableView registerNib:[UINib nibWithNibName:Tweet_Cell_ID bundle:nil] forCellReuseIdentifier:Tweet_Cell_ID];

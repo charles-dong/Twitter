@@ -8,6 +8,22 @@
 
 #import "TweetCell.h"
 
+@interface TweetCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) IBOutlet UILabel *screenName;
+@property (weak, nonatomic) IBOutlet UILabel *timeStamp;
+@property (weak, nonatomic) IBOutlet UILabel *tweetText;
+@property (weak, nonatomic) IBOutlet UIImageView *replyIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *retweetIcon;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCount;
+@property (weak, nonatomic) IBOutlet UIImageView *favoriteIcon;
+@property (weak, nonatomic) IBOutlet UILabel *favoriteCount;
+
+
+@end
+
 @implementation TweetCell
 
 - (void)awakeFromNib {
