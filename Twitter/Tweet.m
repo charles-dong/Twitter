@@ -58,4 +58,20 @@
     return tweets;
 }
 
+- (NSDictionary *)convertToAPIDictionary {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    [result setObject:self.text forKey:@"status"];
+    if (self.replyID) {
+        [result setObject:self.replyID forKey:@"in_reply_to_status_id"];
+    }
+    return result;
+}
+
++ (Tweet *)createNewTweetWithText:(NSString *)text andReplyID: (Tweet *)replyToTweet {
+    Tweet *newTweet = [[Tweet alloc] init];
+    newTweet.text = text;
+    newTweet.replyID = replyToTweet.replyID;
+    return newTweet;
+}
+
 @end

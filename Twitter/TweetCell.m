@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
-
 // may be hidden
 @property (weak, nonatomic) IBOutlet UILabel *retweetedStatus;
 @property (weak, nonatomic) IBOutlet UIImageView *retweetedStatusIcon;
@@ -103,19 +102,23 @@
     self.timeStamp.text = tweetToDisplay.createdAt.shortTimeAgoSinceNow;
     self.tweetText.text = tweetToDisplay.text;
     [self.tweetText sizeToFit];
-    self.favoriteCount.text = [NSString stringWithFormat:@"%ld", tweetToDisplay.favoriteCount];
+    self.favoriteCount.text = [NSString stringWithFormat:@"%ld", tweet.favoriteCount];
     self.retweetCount.text = [NSString stringWithFormat:@"%ld", tweetToDisplay.retweetCount];
     
     // if retweeted, updated retweetButton image
-    if (tweetToDisplay.retweeted) {
+    if (tweet.retweeted) {
         self.retweetButton.selected = YES;
         self.retweetCount.textColor = [[TwitterClient sharedInstance] selectedColor];
+    } else {
+        self.retweetButton.selected = NO;
     }
     
     // if favorited, update favoriteButton image
-    if (tweetToDisplay.favorited) {
+    if (tweet.favorited) {
         self.favoriteButton.selected = YES;
         self.favoriteCount.textColor = [[TwitterClient sharedInstance] selectedColor];
+    } else {
+        self.favoriteButton.selected = NO;
     }
     
     // if there's a photo, load it and update constraints accordingly
@@ -133,6 +136,45 @@
     }
 }
 
-#pragma mark - Utils
+#pragma mark - User Actions
+
+- (IBAction)didClickReply:(id)sender {
+    
+    if (self.delegate) {
+        [self.delegate tweetCell:self didClickReply:self.tweet];
+    }
+}
+
+- (IBAction)didClickRetweet:(id)sender {
+    if (self.tweet.retweeted) {
+        self.tweet.retweeted = false;
+        self.tweet.retweet.retweetCount -= 1;
+    } else {
+        self.tweet.retweeted = true;
+        self.tweet.retweet.retweetCount += 1;
+    }
+    
+    // reload cell
+    [self setTweet:self.tweet];
+    if (self.delegate){
+        [self.delegate tweetCell:self didClickRetweet:self.tweet];
+    }
+}
+
+- (IBAction)didClickFavorite:(id)sender {
+    if (self.tweet.favorited) {
+        self.tweet.favorited = false;
+        self.tweet.favoriteCount -= 1;
+    } else {
+        self.tweet.favorited = true;
+        self.tweet.favoriteCount += 1;
+    }
+    
+    [self setTweet:self.tweet];
+    if (self.delegate){
+        [self.delegate tweetCell:self didClickFavorite:self.tweet];
+    }
+}
+
 
 @end

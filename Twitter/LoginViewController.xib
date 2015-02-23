@@ -14,10 +14,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEH-LU-MCg">
-                    <rect key="frame" x="127" y="160" width="121" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterLogo_Big" translatesAutoresizingMaskIntoConstraints="NO" id="avm-pY-3uM">
+                    <rect key="frame" x="107" y="254" width="160" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="46t-6D-ZUv"/>
+                        <constraint firstAttribute="height" constant="160" id="asy-cm-mzE"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEH-LU-MCg">
+                    <rect key="frame" x="127" y="434" width="121" height="30"/>
                     <state key="normal" title="Login with Twitter">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="E0I-nE-808"/>
@@ -25,7 +33,16 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="avm-pY-3uM" secondAttribute="centerX" id="2cS-j7-Moi"/>
+                <constraint firstAttribute="centerX" secondItem="jEH-LU-MCg" secondAttribute="centerX" id="ejz-KJ-Vnc"/>
+                <constraint firstItem="jEH-LU-MCg" firstAttribute="top" secondItem="avm-pY-3uM" secondAttribute="bottom" constant="20" id="hfA-E6-NbO"/>
+                <constraint firstAttribute="centerY" secondItem="avm-pY-3uM" secondAttribute="centerY" id="hzO-C8-XjZ"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
+    <resources>
+        <image name="TwitterLogo_Big" width="512" height="512"/>
+    </resources>
 </document>

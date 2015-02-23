@@ -21,10 +21,14 @@
 @property (nonatomic, assign) NSInteger retweetCount;
 @property (nonatomic, assign) BOOL retweeted;
 @property (nonatomic, strong) Tweet *retweet;
+@property (nonatomic, strong) NSString *replyID;
+@property (nonatomic, strong) Tweet *myRetweet; // if I've retweeted it, hold reference to my retweet
 
 @property (nonatomic, strong) NSString *tweetPhotoURL;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)tweetsWithArray:(NSArray *)array;
++ (Tweet *)createNewTweetWithText:(NSString *)text andReplyID: (Tweet *)replyToTweet;
+- (NSDictionary *)convertToAPIDictionary;
 
 @end

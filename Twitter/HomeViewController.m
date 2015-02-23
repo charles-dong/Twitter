@@ -8,13 +8,14 @@
 
 #import "HomeViewController.h"
 #import "DetailViewController.h"
+#import "ComposeViewController.h"
 #import "TwitterClient.h"
 #import "Tweet.h"
 #import "TweetCell.h"
 
 NSString *const Tweet_Cell_ID = @"TweetCell";
 
-@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellDelegate>
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellDelegate, ComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
@@ -76,7 +77,82 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
 }
 
 - (void)onCompose:(id)sender {
+    ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.delegate = self;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    [self presentViewController:nvc animated:YES completion:nil];
+}
+
+- (void)onReply:(Tweet *)tweet {
     
+}
+
+#pragma mark - Delegate Methods
+
+- (void)ComposeViewController:(ComposeViewController *)composeViewController tweeted:(Tweet *)tweet {
+    
+    [[TwitterClient sharedInstance] tweet:tweet completion:^(Tweet *tweet, NSError *error) {
+        // Insert the new tweet to the top
+        NSMutableArray *newTweets = [NSMutableArray arrayWithObject:tweet];
+        [self.tweets replaceObjectsInRange:NSMakeRange(0,0)
+                      withObjectsFromArray:newTweets];
+        [self.tableView reloadData];
+    }];
+}
+
+#pragma mark - User Actions
+
+-(void)tweetCell:(TweetCell *)tweetCell didClickReply: (Tweet *) tweet {
+    [self onReply:tweet];
+}
+
+-(void)tweetCell:(TweetCell *)tweetCell didClickRetweet: (Tweet *) tweet {
+    // tweet.retweeted was set to !tweet.retweeted prior to getting here
+    if (!tweet.retweeted) {
+        [[TwitterClient sharedInstance] deleteTweet:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
+            // completion block
+            if (error) {
+                NSLog(@"Error: %@", error);
+            } else {
+                NSLog(@"Successfully deleted tweet %@", tweet.text);
+            }
+        }];
+    } else {
+        [[TwitterClient sharedInstance] retweet:tweet completion:^(Tweet *tweet, NSError *error) {
+            // completion block
+            if (error) {
+                NSLog(@"Error: %@", error);
+            } else {
+                NSLog(@"Successfully retweeted tweet %@", tweet.text);
+            }
+        }];
+    }
+    
+    // reload the cell
+    [self.tableView reloadRowsAtIndexPaths:[[NSArray alloc] initWithObjects:[self.tableView indexPathForCell:tweetCell], nil] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)tweetCell:(TweetCell *)tweetCell didClickFavorite: (Tweet *) tweet {
+    // tweet.favorited was set to !tweet.favorited prior to getting here
+    if (!tweet.favorited) {
+        [[TwitterClient sharedInstance] unfavorite:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@", error);
+            } else {
+                NSLog(@"Successfully unfavorited tweet %@", tweet.text);
+            }
+        }];
+    } else {
+        [[TwitterClient sharedInstance] favorite:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@", error);
+            } else {
+                NSLog(@"Successfully favorited tweet %@", tweet.text);
+            }
+        }];
+    }
+    // reload the cell
+    [self.tableView reloadRowsAtIndexPaths:[[NSArray alloc] initWithObjects:[self.tableView indexPathForCell:tweetCell], nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - TableView Delegate Methods

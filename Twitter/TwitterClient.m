@@ -7,11 +7,18 @@
 //
 
 #import "TwitterClient.h"
-#import "Tweet.h"
 
 NSString * const kTwitterConsumerKey = @"C4sneppAfTEG5PLLH1sjoJfTn";
 NSString * const kTwitterConsumerSecret = @"ezXOjqEf7TAwU49nhZ8xn9sm2PmxhYN5voF9V3oH3XRhzMBeC8";
 NSString * const kTwitterBaseURL = @"https://api.twitter.com";
+NSString *const kTwitterAPIVerifyCredentials = @"1.1/account/verify_credentials.json";
+NSString *const kTwitterAPIHomeTimeLine = @"1.1/statuses/home_timeline.json";
+NSString *const kTwitterAPIRetweet = @"1.1/statuses/retweet/%@.json";
+NSString *const kTwitterAPIFavorite = @"1.1/favorites/create.json";
+NSString *const kTwitterAPIUnFavorite = @"1.1/favorites/destroy.json";
+NSString *const kTwitterAPIDelete = @"1.1/statuses/destroy/%@.json";
+NSString *const kTwitterAPIUpdate = @"1.1/statuses/update.json";
+NSString *const kTwitterAPIUserTimeline = @"1.1/statuses/user_timeline.json";
 
 @interface TwitterClient ()
 
@@ -114,7 +121,7 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
     }
     
     // get tweets
-    [self GET:@"1.1/statuses/home_timeline.json" parameters:finalParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self GET:kTwitterAPIHomeTimeLine parameters:finalParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // TODO: check to make sure responseObject is in fact an NSArray
         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
         completion(tweets, nil);
@@ -124,5 +131,60 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
     }];
 }
 
+#pragma mark - API Actions
+
+- (void)tweet:(Tweet *)tweet completion:(void (^)(Tweet *tweet, NSError *error))completion {
+    [self POST:kTwitterAPIUpdate parameters:[tweet convertToAPIDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion([[Tweet alloc] initWithDictionary:responseObject], nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        completion(nil, error);
+    }];
+}
+
+- (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *tweet, NSError *error))completion {
+    [self POST:[NSString stringWithFormat:kTwitterAPIRetweet, tweet.tweetID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        tweet.myRetweet = [[Tweet alloc] initWithDictionary:responseObject];
+        completion(tweet.myRetweet, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        completion(nil, error);
+    }];
+}
+
+- (void)deleteTweet:(NSString *)tweetID completion:(void (^)(Tweet *tweet, NSError *error))completion {
+    if (tweetID==nil) {
+        //NSError *error = [[NSError alloc] init];
+        // TODO: Write error
+        completion(nil, nil);
+        return;
+    }
+    [self POST:[NSString stringWithFormat:kTwitterAPIDelete, tweetID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion([[Tweet alloc] initWithDictionary:responseObject], nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        completion(nil, error);
+    }];
+
+}
+- (void)favorite:(NSString *)tweetID completion:(void (^)(Tweet *tweet, NSError *error))completion {
+    NSDictionary *param = [[NSDictionary alloc] initWithObjectsAndKeys:tweetID, @"id", nil];
+    [self POST:kTwitterAPIFavorite parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion([[Tweet alloc] initWithDictionary:responseObject], nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        completion(nil, error);
+    }];
+
+}
+- (void)unfavorite:(NSString *)tweetID completion:(void (^)(Tweet *tweet, NSError *error))completion {
+    NSDictionary *param = [[NSDictionary alloc] initWithObjectsAndKeys:tweetID, @"id", nil];
+    [self POST:kTwitterAPIUnFavorite parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion([[Tweet alloc] initWithDictionary:responseObject], nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        completion(nil, error);
+    }];
+}
 
 @end

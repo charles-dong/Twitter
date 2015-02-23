@@ -19,6 +19,8 @@
 		BCE50E501A9A7D8000CD435E /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE50E4E1A9A7D8000CD435E /* TweetCell.xib */; };
 		BCE50E541A9ADC8D00CD435E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE50E521A9ADC8D00CD435E /* DetailViewController.m */; };
 		BCE50E551A9ADC8D00CD435E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE50E531A9ADC8D00CD435E /* DetailViewController.xib */; };
+		BCE50E591A9B02A200CD435E /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE50E571A9B02A200CD435E /* ComposeViewController.m */; };
+		BCE50E5A1A9B02A200CD435E /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE50E581A9B02A200CD435E /* ComposeViewController.xib */; };
 		BCFB856F1A98858E00382CA7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFB856D1A98858E00382CA7 /* LoginViewController.m */; };
 		BCFB85701A98858E00382CA7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCFB856E1A98858E00382CA7 /* LoginViewController.xib */; };
 		BCFB85741A98866700382CA7 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFB85731A98866700382CA7 /* TwitterClient.m */; };
@@ -59,6 +61,9 @@
 		BCE50E511A9ADC8D00CD435E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		BCE50E521A9ADC8D00CD435E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		BCE50E531A9ADC8D00CD435E /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		BCE50E561A9B02A200CD435E /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		BCE50E571A9B02A200CD435E /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		BCE50E581A9B02A200CD435E /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		BCFB856C1A98858E00382CA7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		BCFB856D1A98858E00382CA7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		BCFB856E1A98858E00382CA7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -173,6 +178,9 @@
 				BCE50E511A9ADC8D00CD435E /* DetailViewController.h */,
 				BCE50E521A9ADC8D00CD435E /* DetailViewController.m */,
 				BCE50E531A9ADC8D00CD435E /* DetailViewController.xib */,
+				BCE50E561A9B02A200CD435E /* ComposeViewController.h */,
+				BCE50E571A9B02A200CD435E /* ComposeViewController.m */,
+				BCE50E581A9B02A200CD435E /* ComposeViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -300,6 +308,7 @@
 				BCE50E551A9ADC8D00CD435E /* DetailViewController.xib in Resources */,
 				BCE50E4A1A9A79CD00CD435E /* HomeViewController.xib in Resources */,
 				BCCD7E631A98848300781111 /* Images.xcassets in Resources */,
+				BCE50E5A1A9B02A200CD435E /* ComposeViewController.xib in Resources */,
 				BCFB85701A98858E00382CA7 /* LoginViewController.xib in Resources */,
 				BCE50E501A9A7D8000CD435E /* TweetCell.xib in Resources */,
 			);
@@ -355,6 +364,7 @@
 				BCE50E4F1A9A7D8000CD435E /* TweetCell.m in Sources */,
 				BCFB85781A988EF900382CA7 /* User.m in Sources */,
 				BCE50E541A9ADC8D00CD435E /* DetailViewController.m in Sources */,
+				BCE50E591A9B02A200CD435E /* ComposeViewController.m in Sources */,
 				BCFB85741A98866700382CA7 /* TwitterClient.m in Sources */,
 				BCCD7E5B1A98848300781111 /* AppDelegate.m in Sources */,
 				BCFB857B1A988F0700382CA7 /* Tweet.m in Sources */,

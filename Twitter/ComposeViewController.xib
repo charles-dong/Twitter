@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController">
+            <connections>
+                <outlet property="backgroundView" destination="5ti-fe-LRf" id="7Mt-So-2o4"/>
+                <outlet property="characterCount" destination="gan-h5-GAJ" id="HfZ-9e-CuL"/>
+                <outlet property="profilePicture" destination="Hq6-xB-MWZ" id="nr1-cm-yIC"/>
+                <outlet property="screenName" destination="Tro-Hr-RWK" id="Wg4-YL-f6m"/>
+                <outlet property="textField" destination="qlv-TG-c0X" id="I3P-50-Xpi"/>
+                <outlet property="username" destination="of1-Dl-8Eu" id="IGP-ip-qFq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ti-fe-LRf">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_profile_pic_48x48" translatesAutoresizingMaskIntoConstraints="NO" id="Hq6-xB-MWZ">
+                            <rect key="frame" x="8" y="80" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="TMv-n2-ekw"/>
+                                <constraint firstAttribute="width" constant="48" id="b8T-5x-XPf"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Charles Dong" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of1-Dl-8Eu">
+                            <rect key="frame" x="64" y="80" width="99" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="@charliedong" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tro-Hr-RWK">
+                            <rect key="frame" x="64" y="101.5" width="76" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's happening?" translatesAutoresizingMaskIntoConstraints="NO" id="qlv-TG-c0X">
+                            <rect key="frame" x="8" y="136" width="359" height="281"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gan-h5-GAJ">
+                            <rect key="frame" x="346" y="101.5" width="21" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="qlv-TG-c0X" secondAttribute="trailing" constant="8" id="6S0-or-2iT"/>
+                        <constraint firstItem="gan-h5-GAJ" firstAttribute="centerY" secondItem="Tro-Hr-RWK" secondAttribute="centerY" id="7VT-20-whV"/>
+                        <constraint firstAttribute="bottom" secondItem="qlv-TG-c0X" secondAttribute="bottom" constant="250" id="CWV-aP-Kg1"/>
+                        <constraint firstItem="Tro-Hr-RWK" firstAttribute="top" secondItem="of1-Dl-8Eu" secondAttribute="bottom" constant="2" id="E9Q-ro-qxy"/>
+                        <constraint firstItem="Tro-Hr-RWK" firstAttribute="leading" secondItem="Hq6-xB-MWZ" secondAttribute="trailing" constant="8" id="EHX-SK-Cvq"/>
+                        <constraint firstItem="qlv-TG-c0X" firstAttribute="top" secondItem="Hq6-xB-MWZ" secondAttribute="bottom" constant="8" id="Guc-r3-eon"/>
+                        <constraint firstItem="qlv-TG-c0X" firstAttribute="leading" secondItem="5ti-fe-LRf" secondAttribute="leading" constant="8" id="PAw-Tx-4At"/>
+                        <constraint firstItem="of1-Dl-8Eu" firstAttribute="top" secondItem="Hq6-xB-MWZ" secondAttribute="top" id="TOv-gf-TID"/>
+                        <constraint firstAttribute="trailing" secondItem="gan-h5-GAJ" secondAttribute="trailing" constant="8" id="Wie-SI-wwh"/>
+                        <constraint firstItem="Hq6-xB-MWZ" firstAttribute="top" secondItem="5ti-fe-LRf" secondAttribute="top" constant="80" id="Xxr-C2-Z8a"/>
+                        <constraint firstItem="gan-h5-GAJ" firstAttribute="leading" secondItem="Tro-Hr-RWK" secondAttribute="trailing" constant="206" id="aOf-pz-M0y"/>
+                        <constraint firstItem="Hq6-xB-MWZ" firstAttribute="leading" secondItem="5ti-fe-LRf" secondAttribute="leading" constant="8" id="eoN-mM-zhb"/>
+                        <constraint firstItem="of1-Dl-8Eu" firstAttribute="leading" secondItem="Hq6-xB-MWZ" secondAttribute="trailing" constant="8" id="oV7-2e-vUD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5ti-fe-LRf" secondAttribute="trailing" id="092-pp-Ngv"/>
+                <constraint firstAttribute="bottom" secondItem="5ti-fe-LRf" secondAttribute="bottom" id="2gg-OA-hN1"/>
+                <constraint firstItem="5ti-fe-LRf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iV8-M9-q8N"/>
+                <constraint firstItem="5ti-fe-LRf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vfN-sU-QCm"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="301.5" y="394.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="twitter_profile_pic_48x48" width="48" height="48"/>
+    </resources>
+</document>

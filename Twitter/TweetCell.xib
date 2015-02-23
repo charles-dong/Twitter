@@ -38,8 +38,8 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tweet text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA6-dj-3hY">
-                        <rect key="frame" x="64" y="50" width="248" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA6-dj-3hY">
+                        <rect key="frame" x="64" y="49" width="248" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpK-fr-zAi">
-                        <rect key="frame" x="64" y="169" width="16" height="16"/>
+                        <rect key="frame" x="64" y="168" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="Cd4-7f-6Wi"/>
                             <constraint firstAttribute="height" constant="16" id="isM-iS-wjt"/>
@@ -78,9 +78,12 @@
                         <state key="normal" image="reply_light">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="didClickReply:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NUf-Kx-Uda"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7m-uz-gvJ">
-                        <rect key="frame" x="120" y="169" width="16" height="16"/>
+                        <rect key="frame" x="120" y="168" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="68X-my-PmC"/>
                             <constraint firstAttribute="width" constant="16" id="Dgu-VY-Ji6"/>
@@ -88,9 +91,13 @@
                         <state key="normal" image="retweet_light">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="selected" image="retweet_selected"/>
+                        <connections>
+                            <action selector="didClickRetweet:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1Ir-nW-S5F"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwv-Ya-3dL">
-                        <rect key="frame" x="176" y="169" width="16" height="16"/>
+                        <rect key="frame" x="176" y="168" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="7HV-g2-KWr"/>
                             <constraint firstAttribute="width" constant="16" id="Qvf-SG-OHW"/>
@@ -98,9 +105,13 @@
                         <state key="normal" image="fav_light">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="selected" image="fav_selected"/>
+                        <connections>
+                            <action selector="didClickFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eD5-bI-Sji"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Syq-sZ-r1k">
-                        <rect key="frame" x="64" y="73" width="248" height="90"/>
+                        <rect key="frame" x="64" y="72" width="248" height="90"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="999" constant="90" id="OSi-Gs-SHo"/>
                         </constraints>
@@ -177,8 +188,10 @@
     </objects>
     <resources>
         <image name="fav_light" width="21" height="21"/>
+        <image name="fav_selected" width="21" height="21"/>
         <image name="reply_light" width="21" height="21"/>
         <image name="retweet_light" width="21" height="21"/>
+        <image name="retweet_selected" width="21" height="21"/>
         <image name="twitter_profile_pic_48x48" width="48" height="48"/>
     </resources>
 </document>

@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UIColor *twitterColor = [[TwitterClient sharedInstance] twitterColor];
+    self.view.backgroundColor = twitterColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +39,8 @@
         if (user != nil) {
             // modally present tweets view
             NSLog(@"Welcome to %@", user.name);
-            [self presentViewController:[[HomeViewController alloc] init] animated:YES completion:nil];
+            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+            [self presentViewController:nvc animated:YES completion:nil];
         } else {
             // present error
         }
