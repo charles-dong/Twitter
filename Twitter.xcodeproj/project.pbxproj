@@ -17,6 +17,8 @@
 		BCE50E4A1A9A79CD00CD435E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE50E481A9A79CD00CD435E /* HomeViewController.xib */; };
 		BCE50E4F1A9A7D8000CD435E /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE50E4D1A9A7D8000CD435E /* TweetCell.m */; };
 		BCE50E501A9A7D8000CD435E /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE50E4E1A9A7D8000CD435E /* TweetCell.xib */; };
+		BCE50E541A9ADC8D00CD435E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE50E521A9ADC8D00CD435E /* DetailViewController.m */; };
+		BCE50E551A9ADC8D00CD435E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE50E531A9ADC8D00CD435E /* DetailViewController.xib */; };
 		BCFB856F1A98858E00382CA7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFB856D1A98858E00382CA7 /* LoginViewController.m */; };
 		BCFB85701A98858E00382CA7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCFB856E1A98858E00382CA7 /* LoginViewController.xib */; };
 		BCFB85741A98866700382CA7 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFB85731A98866700382CA7 /* TwitterClient.m */; };
@@ -54,6 +56,9 @@
 		BCE50E4C1A9A7D8000CD435E /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
 		BCE50E4D1A9A7D8000CD435E /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		BCE50E4E1A9A7D8000CD435E /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
+		BCE50E511A9ADC8D00CD435E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		BCE50E521A9ADC8D00CD435E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		BCE50E531A9ADC8D00CD435E /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		BCFB856C1A98858E00382CA7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		BCFB856D1A98858E00382CA7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		BCFB856E1A98858E00382CA7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -165,6 +170,9 @@
 				BCE50E461A9A79CD00CD435E /* HomeViewController.h */,
 				BCE50E471A9A79CD00CD435E /* HomeViewController.m */,
 				BCE50E481A9A79CD00CD435E /* HomeViewController.xib */,
+				BCE50E511A9ADC8D00CD435E /* DetailViewController.h */,
+				BCE50E521A9ADC8D00CD435E /* DetailViewController.m */,
+				BCE50E531A9ADC8D00CD435E /* DetailViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCCD7E661A98848300781111 /* LaunchScreen.xib in Resources */,
+				BCE50E551A9ADC8D00CD435E /* DetailViewController.xib in Resources */,
 				BCE50E4A1A9A79CD00CD435E /* HomeViewController.xib in Resources */,
 				BCCD7E631A98848300781111 /* Images.xcassets in Resources */,
 				BCFB85701A98858E00382CA7 /* LoginViewController.xib in Resources */,
@@ -345,6 +354,7 @@
 			files = (
 				BCE50E4F1A9A7D8000CD435E /* TweetCell.m in Sources */,
 				BCFB85781A988EF900382CA7 /* User.m in Sources */,
+				BCE50E541A9ADC8D00CD435E /* DetailViewController.m in Sources */,
 				BCFB85741A98866700382CA7 /* TwitterClient.m in Sources */,
 				BCCD7E5B1A98848300781111 /* AppDelegate.m in Sources */,
 				BCFB857B1A988F0700382CA7 /* Tweet.m in Sources */,

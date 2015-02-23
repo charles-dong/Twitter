@@ -11,11 +11,16 @@
 
 @interface TwitterClient : BDBOAuth1RequestOperationManager
 
+@property (strong, nonatomic) UIColor *twitterColor;
+
 + (TwitterClient *)sharedInstance;
 
 - (void)loginWithCompletion:(void (^)(User *user, NSError *error))completion;
 - (void)openURL:(NSURL *)url;
-
 - (void)homeTimelineWithParams:(NSDictionary *)params completionBlock:(void (^)(NSArray *tweets, NSError *error))completion;
+
+- (UIColor *)twitterColor;
+- (UIColor *)twitterSecondaryColor;
+- (UIColor *)selectedColor;
 
 @end
