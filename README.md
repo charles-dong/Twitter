@@ -28,10 +28,6 @@ Time spent: `17 hours`
 - [x] In the timeline, show first photo alongside the text if the tweet contains photos
 - [ ] In detail tweet view, show all photos and also provide photo gallery view 
 
-### Notes
-- replying does not work yet
-- detail view controller has not been implemented yet
-
 ### Walkthrough
 
 ![Alt text](https://github.com/charles-dong/Twitter/blob/master/yayTwitter.gif)
