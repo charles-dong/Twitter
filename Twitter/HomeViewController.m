@@ -84,7 +84,11 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
 }
 
 - (void)onReply:(Tweet *)tweet {
-    
+    ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.delegate = self;
+    cvc.replyToTweet = tweet;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 #pragma mark - Delegate Methods

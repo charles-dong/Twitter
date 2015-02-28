@@ -111,6 +111,7 @@
         self.retweetCount.textColor = [[TwitterClient sharedInstance] selectedColor];
     } else {
         self.retweetButton.selected = NO;
+        self.retweetCount.textColor = [[TwitterClient sharedInstance] unselectedColor];
     }
     
     // if favorited, update favoriteButton image
@@ -119,6 +120,7 @@
         self.favoriteCount.textColor = [[TwitterClient sharedInstance] selectedColor];
     } else {
         self.favoriteButton.selected = NO;
+        self.favoriteCount.textColor = [[TwitterClient sharedInstance] unselectedColor];
     }
     
     // if there's a photo, load it and update constraints accordingly

@@ -44,18 +44,6 @@ NSString *const kTwitterAPIUserTimeline = @"1.1/statuses/user_timeline.json";
     return instance;
 }
 
-- (UIColor *)twitterColor {
-    return [UIColor colorWithRed:85.0f/255.0f green:172.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
-}
-
-- (UIColor *)twitterSecondaryColor {
-    return [UIColor  colorWithRed:245.0f/255.0f green:248.0f/255.0f blue:250.0f/255.0f alpha:1.0f];
-}
-
-- (UIColor *)selectedColor {
-    return [UIColor colorWithRed:253.0f/255.0f green:160.0f/255.0f blue:65.0f/255.0f alpha:1.0f];
-}
-
 - (void)loginWithCompletion:(void (^)(User *user, NSError *error))completion {
     
     // save completion block
@@ -185,6 +173,26 @@ NSString *const kTwitterAPIUserTimeline = @"1.1/statuses/user_timeline.json";
         NSLog(@"%@", error);
         completion(nil, error);
     }];
+}
+
+
+
+#pragma mark - Colors
+
+- (UIColor *)twitterColor {
+    return [UIColor colorWithRed:85.0f/255.0f green:172.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
+}
+
+- (UIColor *)twitterSecondaryColor {
+    return [UIColor  colorWithRed:245.0f/255.0f green:248.0f/255.0f blue:250.0f/255.0f alpha:1.0f];
+}
+
+- (UIColor *)selectedColor {
+    return [UIColor colorWithRed:253.0f/255.0f green:160.0f/255.0f blue:65.0f/255.0f alpha:1.0f];
+}
+
+- (UIColor *)unselectedColor {
+    return [UIColor lightGrayColor];
 }
 
 @end

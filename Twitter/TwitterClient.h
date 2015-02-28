@@ -30,5 +30,6 @@
 - (UIColor *)twitterColor;
 - (UIColor *)twitterSecondaryColor;
 - (UIColor *)selectedColor;
+- (UIColor *)unselectedColor;
 
 @end
