@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContainerViewController">
+            <connections>
+                <outlet property="contentView" destination="eLn-8s-j01" id="3DC-WA-3Ud"/>
+                <outlet property="leftContentViewConstraint" destination="kgC-He-Spu" id="zFo-zQ-zWf"/>
+                <outlet property="menuView" destination="ABg-jp-Qm2" id="kg2-mx-HK6"/>
+                <outlet property="rightContentViewConstraint" destination="5cS-P0-ooy" id="2o1-1T-v5s"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-8s-j01" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="bbb-DI-aN3" appends="YES" id="Zg0-gh-BY5"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABg-jp-Qm2" userLabel="menuView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ABg-jp-Qm2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1cK-uJ-qAR"/>
+                <constraint firstAttribute="trailing" secondItem="eLn-8s-j01" secondAttribute="trailing" id="5cS-P0-ooy"/>
+                <constraint firstAttribute="bottom" secondItem="ABg-jp-Qm2" secondAttribute="bottom" id="HIj-1U-SIr"/>
+                <constraint firstItem="ABg-jp-Qm2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TTk-0s-ycV"/>
+                <constraint firstAttribute="bottom" secondItem="eLn-8s-j01" secondAttribute="bottom" id="XDe-aU-Jiv"/>
+                <constraint firstAttribute="trailing" secondItem="ABg-jp-Qm2" secondAttribute="trailing" id="jQo-i0-hgY"/>
+                <constraint firstItem="eLn-8s-j01" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kgC-He-Spu"/>
+                <constraint firstItem="eLn-8s-j01" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="omZ-h2-cRS"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="bbb-DI-aN3">
+            <connections>
+                <action selector="onPanContentView:" destination="-1" id="vqu-Iy-2Qm"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+</document>

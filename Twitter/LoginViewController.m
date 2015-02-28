@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 #import "HomeViewController.h"
+#import "ContainerViewController.h"
 
 @interface LoginViewController ()
 - (IBAction)onLogin:(id)sender;
@@ -39,7 +40,7 @@
         if (user != nil) {
             // modally present tweets view
             NSLog(@"Welcome to %@", user.name);
-            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:[[ContainerViewController alloc] init]];
             [self presentViewController:nvc animated:YES completion:nil];
         } else {
             // present error
