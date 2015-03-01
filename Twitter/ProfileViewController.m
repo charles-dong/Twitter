@@ -59,10 +59,15 @@
     } else {
         [self.coverPhoto setImage:[UIImage imageNamed:@"default_cover_photo"]];
     }
-
+    
+    [self loadTimelineWithParams:nil];
 }
 
 #pragma mark - User Actions
+
+-(void)tweetCell:(TweetCell *)tweetCell didTapProfilePicOfUser:(User *)user {
+    [self onProfilePictureTapOfUser:user];
+}
 
 - (void)onMenuButton:(id)sender {
     [self.containerViewController toggleMenu];
@@ -112,7 +117,6 @@
 
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     DetailViewController *dvc = [[DetailViewController alloc] init];
@@ -124,6 +128,11 @@
 
 #pragma mark - Utils
 
+-(void)onProfilePictureTapOfUser:(User *)user {
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    pvc.user = user;
+    [self.navigationController pushViewController:pvc animated:YES];
+}
 
 - (void)loadTimelineWithParams:(NSMutableDictionary *)params {
     self.isCurrentlyLoading = YES;
@@ -135,7 +144,7 @@
             } else {
                 self.tweets = [tweets mutableCopy];
             }
-            
+            NSLog(@"Tweets: %@", self.tweets);
             [self.tableView reloadData];
         } else {
             NSLog(@"Failed to get user timeline in profile vc");

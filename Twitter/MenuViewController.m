@@ -72,10 +72,10 @@ typedef NS_ENUM(NSInteger, MenuIndex) {
             cell.menuLabel.text = @"";
             break;
         case MenuIndexProfile:
-            cell.menuLabel.text = @"Me";
+            cell.menuLabel.text = @"Profile";
             break;
         case MenuIndexTimeline:
-            cell.menuLabel.text = @"Timelines";
+            cell.menuLabel.text = @"Timeline";
             break;
         case MenuIndexLogout:
             cell.menuLabel.text = @"Logout";

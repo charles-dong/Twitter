@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
-
+#import "User.h"
 @class TweetCell;
 
 @protocol TweetCellDelegate <NSObject>
@@ -16,6 +16,8 @@
 -(void)tweetCell:(TweetCell *)tweetCell didClickReply: (Tweet *) tweet;
 -(void)tweetCell:(TweetCell *)tweetCell didClickRetweet: (Tweet *) tweet;
 -(void)tweetCell:(TweetCell *)tweetCell didClickFavorite: (Tweet *) tweet;
+-(void)tweetCell:(TweetCell *)tweetCell didTapProfilePicOfUser:(User *)user;
+
 
 @end
 

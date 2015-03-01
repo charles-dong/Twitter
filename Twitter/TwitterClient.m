@@ -128,7 +128,7 @@ NSString *const kTwitterAPIUserTimeline = @"1.1/statuses/user_timeline.json";
         [finalParams setObject:@([user.userID integerValue]) forKey:@"user_id"];
     }
     
-    [self GET:@"1.1/statuses/user_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self GET:kTwitterAPIUserTimeline parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
         completion(tweets, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

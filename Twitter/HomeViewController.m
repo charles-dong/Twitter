@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "DetailViewController.h"
 #import "ComposeViewController.h"
+#import "ProfileViewController.h"
 #import "TwitterClient.h"
 #import "Tweet.h"
 #import "TweetCell.h"
@@ -37,9 +38,6 @@
     // Do any additional setup after loading the view from its nib.
     
     UIColor *twitterColor = [[TwitterClient sharedInstance] twitterColor];
-    UIColor *twitterSecondaryColor = [[TwitterClient sharedInstance] twitterSecondaryColor];
-     // navigation bar
-    [self setupNavigationBarWithBarTintColor:twitterColor andTintColor:twitterSecondaryColor];
     
     // table view setup
     [self.tableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:nil] forCellReuseIdentifier:@"TweetCell"];
@@ -58,6 +56,15 @@
     
     //get tweets 
     [self homeTimelineWithParams:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    UIColor *twitterColor = [[TwitterClient sharedInstance] twitterColor];
+    UIColor *twitterSecondaryColor = [[TwitterClient sharedInstance] twitterSecondaryColor];
+    // navigation bar
+    [self setupNavigationBarWithBarTintColor:twitterColor andTintColor:twitterSecondaryColor];
+    
 }
 
 
@@ -109,6 +116,10 @@
 }
 
 #pragma mark - User Actions
+
+-(void)tweetCell:(TweetCell *)tweetCell didTapProfilePicOfUser:(User *)user {
+    [self onProfilePictureTapOfUser:user];
+}
 
 -(void)tweetCell:(TweetCell *)tweetCell didClickReply: (Tweet *) tweet {
     [self onReply:tweet];
@@ -197,6 +208,12 @@
 
 #pragma mark - Utils
 
+-(void)onProfilePictureTapOfUser:(User *)user {
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    pvc.user = user;
+    [self.navigationController pushViewController:pvc animated:YES];
+}
+
 - (HomeViewController *)initWithContainerViewController:(ContainerViewController *)containerViewController {
     self = [super init];
     if (self) {
@@ -227,6 +244,10 @@
     self.navigationController.navigationBar.tintColor = tintColor;
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName:tintColor}];
+    
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.view.backgroundColor = barTintColor;
+    self.navigationController.navigationBar.backgroundColor = barTintColor;
 }
 
 - (void)homeTimelineWithParams:(NSDictionary *)params {
