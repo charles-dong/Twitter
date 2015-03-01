@@ -33,8 +33,7 @@
     if (user != nil) {
         NSLog(@"Welcome %@", user.name);
         ContainerViewController *cvc = [[ContainerViewController alloc] init];
-        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
-        self.window.rootViewController = nvc;
+        self.window.rootViewController = cvc;
     } else {
         NSLog(@"Not logged in.");
         self.window.rootViewController = [[LoginViewController alloc] init];

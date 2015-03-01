@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
+            <connections>
+                <outlet property="coverPhoto" destination="JLg-2h-uQS" id="oOm-Ju-1Wg"/>
+                <outlet property="profilePic" destination="f84-2f-cRI" id="ofJ-aF-CLI"/>
+                <outlet property="tableView" destination="4bf-Ah-aQA" id="kpT-sH-f2w"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4bf-Ah-aQA">
+                    <rect key="frame" x="0.0" y="150" width="375" height="517"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JLg-2h-uQS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="o9h-O9-ZIX"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_profile_pic_48x48" translatesAutoresizingMaskIntoConstraints="NO" id="f84-2f-cRI">
+                    <rect key="frame" x="8" y="126" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="GdK-h5-fJz"/>
+                        <constraint firstAttribute="width" constant="48" id="wbR-V5-24a"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="4bf-Ah-aQA" secondAttribute="bottom" id="1Rc-Cv-5TL"/>
+                <constraint firstAttribute="trailing" secondItem="4bf-Ah-aQA" secondAttribute="trailing" id="AWT-dx-4pP"/>
+                <constraint firstItem="4bf-Ah-aQA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FdU-iA-irf"/>
+                <constraint firstItem="4bf-Ah-aQA" firstAttribute="top" secondItem="JLg-2h-uQS" secondAttribute="bottom" id="N0F-fy-KMz"/>
+                <constraint firstItem="JLg-2h-uQS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W81-5H-BYG"/>
+                <constraint firstAttribute="trailing" secondItem="JLg-2h-uQS" secondAttribute="trailing" id="aDT-rq-MRQ"/>
+                <constraint firstItem="JLg-2h-uQS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mRN-M7-7eB"/>
+                <constraint firstItem="f84-2f-cRI" firstAttribute="top" secondItem="JLg-2h-uQS" secondAttribute="bottom" constant="-24" id="oXF-Bj-4jV"/>
+                <constraint firstItem="f84-2f-cRI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="yrh-Tx-Y2x"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="twitter_profile_pic_48x48" width="48" height="48"/>
+    </resources>
+</document>

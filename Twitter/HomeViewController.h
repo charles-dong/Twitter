@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContainerViewController.h"
 
 @interface HomeViewController : UIViewController
+
+- (HomeViewController *)initWithContainerViewController:(ContainerViewController *)containerViewController;
 
 @end

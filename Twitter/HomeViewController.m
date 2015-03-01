@@ -13,7 +13,7 @@
 #import "Tweet.h"
 #import "TweetCell.h"
 
-NSString *const Tweet_Cell_ID = @"TweetCell";
+//NSString *const Tweet_Cell_ID = @"TweetCell";
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellDelegate, ComposeViewControllerDelegate>
 
@@ -27,6 +27,7 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
 @property (nonatomic, assign) BOOL isInfiniteLoading;
 @property (nonatomic, assign) BOOL isPullDownRefreshing;
 
+@property (nonatomic, weak) ContainerViewController *containerViewController;
 
 @end
 
@@ -42,7 +43,7 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
     [self setupNavigationBarWithBarTintColor:twitterColor andTintColor:twitterSecondaryColor];
     
     // table view setup
-    [self.tableView registerNib:[UINib nibWithNibName:Tweet_Cell_ID bundle:nil] forCellReuseIdentifier:Tweet_Cell_ID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:nil] forCellReuseIdentifier:@"TweetCell"];
     [self setupTableView];
     
     // show background to begin with
@@ -63,9 +64,13 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
 
 #pragma mark - User Actions
 
-- (void)onLogout:(id)sender {
-    [User logout];
+- (void)onMenuButton:(id)sender {
+    [self.containerViewController toggleMenu];
 }
+
+//- (void)onLogout:(id)sender {
+//    [User logout];
+//}
 
 - (void)onTableRefresh:(id)sender {
     if (!self.isCurrentlyLoading){
@@ -167,7 +172,7 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
-    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:Tweet_Cell_ID];
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     cell.tweet = tweet;
     cell.delegate = self;
     
@@ -193,6 +198,14 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
 
 #pragma mark - Utils
 
+- (HomeViewController *)initWithContainerViewController:(ContainerViewController *)containerViewController {
+    self = [super init];
+    if (self) {
+        self.containerViewController = containerViewController;
+    }
+    return self;
+}
+
 - (void)setupTableView {
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -208,13 +221,20 @@ NSString *const Tweet_Cell_ID = @"TweetCell";
 }
 
 - (void)setupNavigationBarWithBarTintColor:(UIColor *)barTintColor andTintColor:(UIColor *)tintColor{
-    self.title = @"Home";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"Logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onLogout:)];
+//    self.title = @"Profile";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"menuIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onMenuButton:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"new_tweet"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onCompose:)];self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationController.navigationBar.barTintColor = barTintColor;
-    self.navigationController.navigationBar.tintColor = tintColor;
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName:tintColor}];
+//    self.navigationController.navigationBar.barTintColor = barTintColor;
+//    self.navigationController.navigationBar.tintColor = tintColor;
+//    [self.navigationController.navigationBar
+//     setTitleTextAttributes:@{NSForegroundColorAttributeName:tintColor}];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.allowDefaultTableScroll = YES;
+//    self.desiredBannerHeight = 150;
 }
 
 - (void)homeTimelineWithParams:(NSDictionary *)params {
