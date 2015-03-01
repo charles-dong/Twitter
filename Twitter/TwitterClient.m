@@ -119,6 +119,24 @@ NSString *const kTwitterAPIUserTimeline = @"1.1/statuses/user_timeline.json";
     }];
 }
 
+- (void)userTimelineWithParams:(NSDictionary *)params forUser:(User *)user completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    
+    NSMutableDictionary *finalParams = [params mutableCopy];
+    if (finalParams == nil) {
+        finalParams = [[NSMutableDictionary alloc] init];
+        [finalParams setObject:@(100) forKey:@"count"];
+        [finalParams setObject:@([user.userID integerValue]) forKey:@"user_id"];
+    }
+    
+    [self GET:@"1.1/statuses/user_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failed to get user timeline tweets with error %@", error);
+        completion(nil, error);
+    }];
+}
+
 #pragma mark - API Actions
 
 - (void)tweet:(Tweet *)tweet completion:(void (^)(Tweet *tweet, NSError *error))completion {

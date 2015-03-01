@@ -13,7 +13,6 @@
 #import "Tweet.h"
 #import "TweetCell.h"
 
-//NSString *const Tweet_Cell_ID = @"TweetCell";
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellDelegate, ComposeViewControllerDelegate>
 
@@ -221,20 +220,13 @@
 }
 
 - (void)setupNavigationBarWithBarTintColor:(UIColor *)barTintColor andTintColor:(UIColor *)tintColor{
-//    self.title = @"Profile";
+    self.title = @"Home";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"menuIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onMenuButton:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"new_tweet"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onCompose:)];self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-//    self.navigationController.navigationBar.barTintColor = barTintColor;
-//    self.navigationController.navigationBar.tintColor = tintColor;
-//    [self.navigationController.navigationBar
-//     setTitleTextAttributes:@{NSForegroundColorAttributeName:tintColor}];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.view.backgroundColor = [UIColor clearColor];
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-//    self.allowDefaultTableScroll = YES;
-//    self.desiredBannerHeight = 150;
+    self.navigationController.navigationBar.barTintColor = barTintColor;
+    self.navigationController.navigationBar.tintColor = tintColor;
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName:tintColor}];
 }
 
 - (void)homeTimelineWithParams:(NSDictionary *)params {

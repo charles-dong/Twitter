@@ -16,6 +16,8 @@
 		BC9C96981AA31E6E0041ECE4 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9C96961AA31E6E0041ECE4 /* ProfileViewController.xib */; };
 		BC9C969C1AA32EEB0041ECE4 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9C969A1AA32EEB0041ECE4 /* MenuCell.m */; };
 		BC9C969D1AA32EEB0041ECE4 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9C969B1AA32EEB0041ECE4 /* MenuCell.xib */; };
+		BCAA0CEE1AA3458500591D80 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAA0CEC1AA3458500591D80 /* ProfileCell.m */; };
+		BCAA0CEF1AA3458500591D80 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCAA0CED1AA3458500591D80 /* ProfileCell.xib */; };
 		BCCD7E581A98848300781111 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCD7E571A98848300781111 /* main.m */; };
 		BCCD7E5B1A98848300781111 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCD7E5A1A98848300781111 /* AppDelegate.m */; };
 		BCCD7E631A98848300781111 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCD7E621A98848300781111 /* Images.xcassets */; };
@@ -62,6 +64,9 @@
 		BC9C96991AA32EEB0041ECE4 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		BC9C969A1AA32EEB0041ECE4 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		BC9C969B1AA32EEB0041ECE4 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		BCAA0CEB1AA3458500591D80 /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		BCAA0CEC1AA3458500591D80 /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
+		BCAA0CED1AA3458500591D80 /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		BCCD7E521A98848300781111 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCD7E561A98848300781111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCCD7E571A98848300781111 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -204,6 +209,9 @@
 				BC9C96991AA32EEB0041ECE4 /* MenuCell.h */,
 				BC9C969A1AA32EEB0041ECE4 /* MenuCell.m */,
 				BC9C969B1AA32EEB0041ECE4 /* MenuCell.xib */,
+				BCAA0CEB1AA3458500591D80 /* ProfileCell.h */,
+				BCAA0CEC1AA3458500591D80 /* ProfileCell.m */,
+				BCAA0CED1AA3458500591D80 /* ProfileCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -353,6 +361,7 @@
 				BCE50E5A1A9B02A200CD435E /* ComposeViewController.xib in Resources */,
 				BCFB85701A98858E00382CA7 /* LoginViewController.xib in Resources */,
 				BC28057D1AA26C3C00F1ECB5 /* ContainerViewController.xib in Resources */,
+				BCAA0CEF1AA3458500591D80 /* ProfileCell.xib in Resources */,
 				BC9C96981AA31E6E0041ECE4 /* ProfileViewController.xib in Resources */,
 				BCE50E501A9A7D8000CD435E /* TweetCell.xib in Resources */,
 			);
@@ -409,6 +418,7 @@
 				BCFB85781A988EF900382CA7 /* User.m in Sources */,
 				BCE50E541A9ADC8D00CD435E /* DetailViewController.m in Sources */,
 				BCE50E591A9B02A200CD435E /* ComposeViewController.m in Sources */,
+				BCAA0CEE1AA3458500591D80 /* ProfileCell.m in Sources */,
 				BCFB85741A98866700382CA7 /* TwitterClient.m in Sources */,
 				BCCD7E5B1A98848300781111 /* AppDelegate.m in Sources */,
 				BCFB857B1A988F0700382CA7 /* Tweet.m in Sources */,

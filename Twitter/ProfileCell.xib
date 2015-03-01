@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="127" id="KGk-i7-Jjw" customClass="ProfileCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charles Dong" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzb-Ja-ZPZ">
+                        <rect key="frame" x="8" y="36" width="304" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@charliedong" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMa-1q-9Ku">
+                        <rect key="frame" x="8" y="64" width="304" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="108" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ3-KC-tqb">
+                        <rect key="frame" x="8" y="88" width="24" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZN-ea-xRJ">
+                        <rect key="frame" x="40" y="88" width="62" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="108" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zd2-wc-DlM">
+                        <rect key="frame" x="114" y="88" width="24" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AF1-Cc-Ovr">
+                        <rect key="frame" x="146" y="88" width="62" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="IZ3-KC-tqb" secondAttribute="bottom" constant="8" id="00y-TM-fWQ"/>
+                    <constraint firstItem="kMa-1q-9Ku" firstAttribute="top" secondItem="Jzb-Ja-ZPZ" secondAttribute="bottom" constant="1" id="3Z0-VT-ZzC"/>
+                    <constraint firstItem="YZN-ea-xRJ" firstAttribute="centerY" secondItem="AF1-Cc-Ovr" secondAttribute="centerY" id="40j-ty-VNx"/>
+                    <constraint firstAttribute="trailing" secondItem="Jzb-Ja-ZPZ" secondAttribute="trailing" constant="8" id="Lcp-m4-UAz"/>
+                    <constraint firstItem="IZ3-KC-tqb" firstAttribute="top" secondItem="kMa-1q-9Ku" secondAttribute="bottom" constant="8" id="Mwn-xB-7wT"/>
+                    <constraint firstItem="YZN-ea-xRJ" firstAttribute="centerY" secondItem="IZ3-KC-tqb" secondAttribute="centerY" id="Nq9-eM-r3r"/>
+                    <constraint firstItem="YZN-ea-xRJ" firstAttribute="centerY" secondItem="Zd2-wc-DlM" secondAttribute="centerY" id="Qzj-qc-7LH"/>
+                    <constraint firstItem="YZN-ea-xRJ" firstAttribute="leading" secondItem="IZ3-KC-tqb" secondAttribute="trailing" constant="8" id="RBp-Rq-gpv"/>
+                    <constraint firstItem="Zd2-wc-DlM" firstAttribute="leading" secondItem="YZN-ea-xRJ" secondAttribute="trailing" constant="12" id="WpR-Wi-LeR"/>
+                    <constraint firstItem="IZ3-KC-tqb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="aRp-Fo-v4q"/>
+                    <constraint firstItem="Jzb-Ja-ZPZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="hbb-gn-bB5"/>
+                    <constraint firstItem="IZ3-KC-tqb" firstAttribute="centerY" secondItem="YZN-ea-xRJ" secondAttribute="centerY" id="nIH-rJ-33O"/>
+                    <constraint firstItem="AF1-Cc-Ovr" firstAttribute="leading" secondItem="Zd2-wc-DlM" secondAttribute="trailing" constant="8" id="puS-XP-P0h"/>
+                    <constraint firstItem="kMa-1q-9Ku" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="sYy-LB-88t"/>
+                    <constraint firstAttribute="trailing" secondItem="kMa-1q-9Ku" secondAttribute="trailing" constant="8" id="stP-T9-ca1"/>
+                    <constraint firstItem="Jzb-Ja-ZPZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="zCx-BR-AGL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="followerCount" destination="Zd2-wc-DlM" id="Yqo-3m-Ngw"/>
+                <outlet property="followingCount" destination="IZ3-KC-tqb" id="oPX-P1-zni"/>
+                <outlet property="nameLabel" destination="Jzb-Ja-ZPZ" id="wdJ-h7-l3N"/>
+                <outlet property="screenNameLabel" destination="kMa-1q-9Ku" id="dn6-pd-xJh"/>
+            </connections>
+            <point key="canvasLocation" x="215" y="339.5"/>
+        </tableViewCell>
+    </objects>
+</document>

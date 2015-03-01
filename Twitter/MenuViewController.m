@@ -12,6 +12,7 @@
 #import "ProfileViewController.h"
 #import "User.h"
 #import "MenuCell.h"
+#import "TwitterClient.h"
 
 typedef NS_ENUM(NSInteger, MenuIndex) {
     MenuIndexProfile    = 0,
@@ -38,6 +39,8 @@ typedef NS_ENUM(NSInteger, MenuIndex) {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.tableView.backgroundColor = [[TwitterClient sharedInstance] twitterColor];
+    
     self.homeViewController = [[HomeViewController alloc] initWithContainerViewController:self.containerViewController];
     self.profileViewController = [[ProfileViewController alloc] initWithContainerViewController:self.containerViewController];
     [self.profileViewController setUser:[User currentUser]];
@@ -47,6 +50,7 @@ typedef NS_ENUM(NSInteger, MenuIndex) {
     [self.containerViewController displayContentController:self.nvc];
     
     // table view
+    self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuCell" bundle:nil] forCellReuseIdentifier:@"MenuCell"];
@@ -56,13 +60,17 @@ typedef NS_ENUM(NSInteger, MenuIndex) {
 #pragma mark - Table Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return MenuIndexMax;
+    return MenuIndexMax + 1; // + 1 for empty cell
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+    cell.backgroundColor = [[TwitterClient sharedInstance] twitterColor];
     
-    switch (indexPath.row) {
+    switch (indexPath.row - 1) {
+        case -1:
+            cell.menuLabel.text = @"";
+            break;
         case MenuIndexProfile:
             cell.menuLabel.text = @"Me";
             break;
@@ -80,14 +88,20 @@ typedef NS_ENUM(NSInteger, MenuIndex) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:[self.nvc viewControllers]];
     
-    
-    switch (indexPath.row) {
+    switch (indexPath.row - 1) {
         case MenuIndexProfile:
-            [self.containerViewController displayContentController:self.profileViewController];
+            [viewControllers replaceObjectAtIndex:0 withObject:self.profileViewController];
+            [self.nvc setViewControllers:viewControllers];
+            [self.nvc popToRootViewControllerAnimated:YES];
+            [self.containerViewController toggleMenu];
             break;
         case MenuIndexTimeline:
-            [self.containerViewController displayContentController:self.homeViewController];
+            [viewControllers replaceObjectAtIndex:0 withObject:self.homeViewController];
+            [self.nvc setViewControllers:viewControllers];
+            [self.nvc popToRootViewControllerAnimated:YES];
+            [self.containerViewController toggleMenu];
             break;
         case MenuIndexLogout:
             [User logout];
