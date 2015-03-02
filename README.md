@@ -17,7 +17,7 @@ Time spent: `27 hours`
 - [ ] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 - [x] User can retweet and favorite to the tweet directly from the timeline feed.
 - [x] Dragging anywhere in the view should reveal the menu.
-- [x] The menu should include links to your profile, the home timeline, and the mentions view.
+- [x] The menu should include links to your profile and the home timeline
 - [x] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
 - [x] Profile page contains the user header view
 - [x] Profile page contains a section with the users basic stats: # tweets, # following, # followers
