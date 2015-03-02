@@ -59,6 +59,14 @@
     [self.favoriteButton setImage:[UIImage imageNamed:@"fav_light"] forState:UIControlStateNormal];
     [self.favoriteButton setImage:[UIImage imageNamed:@"fav_selected"] forState:UIControlStateSelected];
     
+    // tap gesture
+    UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickOnProfilePicture:)];
+    [profileTapGestureRecognizer setNumberOfTouchesRequired:1];
+    [profileTapGestureRecognizer setNumberOfTapsRequired:1];
+    [self.profilePicture addGestureRecognizer:profileTapGestureRecognizer];
+    self.userInteractionEnabled = YES;
+    self.profilePicture.userInteractionEnabled = YES;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -176,6 +184,18 @@
     if (self.delegate){
         [self.delegate tweetCell:self didClickFavorite:self.tweet];
     }
+}
+
+- (void)didClickOnProfilePicture:(id)sender {
+    
+    User *user;
+    if (self.tweet.retweet != nil) {
+        user = self.tweet.retweet.user;
+    } else { // not a retweet
+        user = self.tweet.user;
+    }
+
+    [self.delegate tweetCell:self didTapProfilePicOfUser:user];
 }
 
 

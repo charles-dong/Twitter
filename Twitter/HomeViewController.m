@@ -118,7 +118,9 @@
 #pragma mark - User Actions
 
 -(void)tweetCell:(TweetCell *)tweetCell didTapProfilePicOfUser:(User *)user {
-    [self onProfilePictureTapOfUser:user];
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    [pvc setUser:user];
+    [self.navigationController pushViewController:pvc animated:YES];
 }
 
 -(void)tweetCell:(TweetCell *)tweetCell didClickReply: (Tweet *) tweet {
@@ -198,6 +200,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"didselectrowatindexpath");
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     DetailViewController *dvc = [[DetailViewController alloc] init];
     dvc.tweet = self.tweets[indexPath.row];
@@ -207,12 +210,6 @@
 }
 
 #pragma mark - Utils
-
--(void)onProfilePictureTapOfUser:(User *)user {
-    ProfileViewController *pvc = [[ProfileViewController alloc] init];
-    pvc.user = user;
-    [self.navigationController pushViewController:pvc animated:YES];
-}
 
 - (HomeViewController *)initWithContainerViewController:(ContainerViewController *)containerViewController {
     self = [super init];

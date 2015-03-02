@@ -55,7 +55,7 @@
     
     // cover photo
     if (self.user.profileBannerImageURL != nil) {
-        [self.coverPhoto setImageWithURL:[NSURL URLWithString:self.user.profileBannerImageURL] placeholderImage:[UIImage imageNamed:@"default_cover_photo"]];
+        [self.coverPhoto setImageWithURL:[NSURL URLWithString:self.user.profileBannerImageURL]];
     } else {
         [self.coverPhoto setImage:[UIImage imageNamed:@"default_cover_photo"]];
     }
@@ -66,11 +66,17 @@
 #pragma mark - User Actions
 
 -(void)tweetCell:(TweetCell *)tweetCell didTapProfilePicOfUser:(User *)user {
-    [self onProfilePictureTapOfUser:user];
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    pvc.user = user;
+    [self.navigationController pushViewController:pvc animated:YES];
 }
 
 - (void)onMenuButton:(id)sender {
     [self.containerViewController toggleMenu];
+}
+
+- (void)onBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)onCompose:(id)sender {
@@ -93,7 +99,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"Profile indexpath.row: %ld", indexPath.row);
     if (indexPath.row == 0) {
         ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
         cell.user = self.user;
@@ -128,12 +133,6 @@
 
 #pragma mark - Utils
 
--(void)onProfilePictureTapOfUser:(User *)user {
-    ProfileViewController *pvc = [[ProfileViewController alloc] init];
-    pvc.user = user;
-    [self.navigationController pushViewController:pvc animated:YES];
-}
-
 - (void)loadTimelineWithParams:(NSMutableDictionary *)params {
     self.isCurrentlyLoading = YES;
     
@@ -144,7 +143,6 @@
             } else {
                 self.tweets = [tweets mutableCopy];
             }
-            NSLog(@"Tweets: %@", self.tweets);
             [self.tableView reloadData];
         } else {
             NSLog(@"Failed to get user timeline in profile vc");
@@ -171,7 +169,11 @@
 
 - (void)setupNavigationBarWithBarTintColor:(UIColor *)barTintColor andTintColor:(UIColor *)tintColor{
     self.title = @"";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"menuIconBlue"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onMenuButton:)];
+    if (self.containerViewController) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"menuIconBlue"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onMenuButton:)];
+    } else {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"Back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBackButton:)];
+    }
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"new_tweet"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onCompose:)];self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
     self.navigationController.navigationBar.tintColor = [UIColor clearColor];

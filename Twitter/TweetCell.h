@@ -18,10 +18,7 @@
 -(void)tweetCell:(TweetCell *)tweetCell didClickFavorite: (Tweet *) tweet;
 -(void)tweetCell:(TweetCell *)tweetCell didTapProfilePicOfUser:(User *)user;
 
-
 @end
-
-
 
 @interface TweetCell : UITableViewCell
 

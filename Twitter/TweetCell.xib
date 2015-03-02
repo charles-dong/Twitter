@@ -15,6 +15,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_profile_pic_48x48" translatesAutoresizingMaskIntoConstraints="NO" id="VJa-8m-L9X">
                         <rect key="frame" x="8" y="26" width="48" height="48"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="Hym-DN-FgP"/>
                             <constraint firstAttribute="width" constant="48" id="nRC-dC-ai3"/>

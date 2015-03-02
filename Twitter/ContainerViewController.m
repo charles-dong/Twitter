@@ -18,6 +18,9 @@
 @property (strong, nonatomic) MenuViewController *menuViewController;
 @property (strong, nonatomic) UIViewController *contentViewController;
 
+@property (nonatomic, assign) CGPoint currentContentViewCenter;
+@property (nonatomic, assign) CGFloat currentLeftContentViewConstraintValue;
+
 @property (assign, nonatomic) BOOL menuIsVisible;
 
 - (IBAction)onPanContentView:(id)sender;
@@ -167,8 +170,32 @@
 }
 
 
-- (IBAction)onPanContentView:(id)sender {
-    // TODO
+- (IBAction)onPanContentView:(UIPanGestureRecognizer *)sender {
+    CGPoint velocity = [sender velocityInView:self.view];
+    
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        self.currentLeftContentViewConstraintValue = self.leftContentViewConstraint.constant;
+    } else if (sender.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [sender translationInView:self.view];
+        CGFloat newLeadingConstraint = self.currentLeftContentViewConstraintValue + translation.x;
+        if (newLeadingConstraint < 0) {
+            newLeadingConstraint = 0;
+        }
+        self.leftContentViewConstraint.constant = newLeadingConstraint;
+        self.rightContentViewConstraint.constant = 0 - newLeadingConstraint;
+        [self.contentView setNeedsLayout];
+        [self.contentView layoutIfNeeded];
+        
+    } else if (sender.state == UIGestureRecognizerStateEnded) {
+        if (velocity.x > 0) { // moving right
+            self.menuIsVisible = NO;
+            [self toggleMenu];
+        } else { // moving left
+            self.menuIsVisible = YES;
+            [self toggleMenu];
+        }
+    }
+    
 }
 
 @end

@@ -124,11 +124,11 @@ NSString *const kTwitterAPIUserTimeline = @"1.1/statuses/user_timeline.json";
     NSMutableDictionary *finalParams = [params mutableCopy];
     if (finalParams == nil) {
         finalParams = [[NSMutableDictionary alloc] init];
-        [finalParams setObject:@(100) forKey:@"count"];
+        [finalParams setObject:@(20) forKey:@"count"];
         [finalParams setObject:@([user.userID integerValue]) forKey:@"user_id"];
     }
     
-    [self GET:kTwitterAPIUserTimeline parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self GET:kTwitterAPIUserTimeline parameters:finalParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
         completion(tweets, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
